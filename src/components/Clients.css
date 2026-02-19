@@ -1,0 +1,115 @@
+.clients {
+    padding: 8rem 2rem;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.clients-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.clients-title {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: rgba(22, 105, 122, 0.7);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.clients-subtitle {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #555;
+    margin-bottom: 4rem;
+    font-weight: 400;
+}
+
+/* Track container for horizontal scroll */
+.clients-track {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    will-change: transform;
+}
+
+/* Each logo item */
+.client-logo-item {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.client-logo-item:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 40px rgba(22, 105, 122, 0.15);
+}
+
+.client-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.client-logo-item:hover .client-logo {
+    filter: grayscale(0%);
+}
+
+/* Optional subtle animation on scroll (GSAP) will handle scale/fade */
+
+/* Responsive */
+@media (max-width: 968px) {
+    .clients-track {
+        gap: 2rem;
+    }
+
+    .client-logo-item {
+        width: 150px;
+        height: 150px;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .clients {
+        padding: 5rem 2rem;
+    }
+
+    .clients-subtitle {
+        margin-bottom: 3rem;
+    }
+
+    .clients-track {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .clients-track {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .client-logo-item {
+        width: 120px;
+        height: 120px;
+        padding: 1rem;
+    }
+}
