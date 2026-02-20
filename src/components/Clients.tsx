@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Clients.css';
-
 import client1 from '../assets/صور/about/abot1.jpg';
 import client2 from '../assets/صور/about/about2.jpg';
 import client3 from '../assets/صور/about/about3.jpg';
@@ -31,7 +30,7 @@ const Clients = () => {
         const scrollDistance = trackWidth - viewportWidth;
 
         // Horizontal scroll animation
-        gsap.to(track, {
+        const horizontalScroll = gsap.to(track, {
             x: -scrollDistance,
             ease: 'none',
             scrollTrigger: {
@@ -54,7 +53,7 @@ const Clients = () => {
                     opacity: 1,
                     scrollTrigger: {
                         trigger: logo,
-                        containerAnimation: ScrollTrigger.getById(section.id),
+                        containerAnimation: horizontalScroll,
                         start: 'left 80%',
                         end: 'center 50%',
                         scrub: true,
@@ -64,7 +63,6 @@ const Clients = () => {
                 }
             );
         });
-
     }, []);
 
     return (
@@ -72,7 +70,6 @@ const Clients = () => {
             <div className="clients-container">
                 <h2 className="clients-title">Our Clients</h2>
                 <p className="clients-subtitle">Trusted by leading brands worldwide</p>
-
                 <div ref={trackRef} className="clients-track">
                     {clientLogos.map((logo, index) => (
                         <div key={index} className="client-logo-item">
