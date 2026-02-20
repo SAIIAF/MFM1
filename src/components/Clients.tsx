@@ -29,8 +29,8 @@ const Clients = () => {
         const viewportWidth = window.innerWidth;
         const scrollDistance = trackWidth - viewportWidth;
 
-        // Horizontal scroll animation
-        const horizontalScroll = gsap.to(track, {
+        // ✅ FIX: any لتفادي خطأ TypeScript
+        const horizontalScroll: any = gsap.to(track, {
             x: -scrollDistance,
             ease: 'none',
             scrollTrigger: {
